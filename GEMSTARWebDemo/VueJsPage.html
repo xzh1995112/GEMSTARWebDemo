@@ -7,12 +7,11 @@
     <!-- 样式代码 -->
     <style>
         body div {padding-left:15px;margin-bottom:15px;}
-        #Vue-Template,#Vue-Bind,#Vue-For,#Vue-Computed,#Vue-Watch {display:none;}
+        #Vue-Template,#vue-Bind,#Vue-For,#Vue-Computed {display:none;}
         #app {font-family:'Avenir',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-align:center;color:#2c3e50;margin-top:60px;}
         .class1 {background:#444;color:#eee;}
         ul {margin:0;padding:0;margin-bottom:15px;}
         ul li {list-style:none;margin:0px;}
-        .active{width:150px;height:150px;background-color:green;}
     </style>
     <script type="text/javascript" src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <script type="text/javascript" src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
@@ -44,7 +43,7 @@
         </div>
     </section>
 
-    <section id="Vue-Bind">
+    <section id="vue-Bind">
         <div id="appUrl">
             <a v-bind:href="url" target="_blank">打开百度</a>
             <a :href="url" target="_blank">打开百度 - 缩写</a>
@@ -68,6 +67,7 @@
             <div v-else>
                 Not Sorry!
             </div>
+
             <div v-if="word==='A'">
                 A
             </div>
@@ -121,15 +121,7 @@
     <section id="Vue-Watch">
         <div id="appWatch">
             <p style="font-size:large;">计数器：{{ count }}</p>
-            <button type="button" @click="count++">点击我</button><br />
-            <input type="number" id="km" v-model="kilometers" /> 千米 => <input type="number" id="m" v-model="meters" /> 米
-            <p id="info"></p>
-        </div>
-    </section>
-
-    <section id="Vue-Class">
-        <div id="appBind">
-            <div v-bind:class="{ active: isActive }"></div>
+            <button type="button" @click="count++">点击我</button>
         </div>
     </section>
 
@@ -138,44 +130,17 @@
             init();
         }
 
-        function VueClass(){
-            new Vue({
-                el:'#appBind',
-                data:{
-                    isActive:true
-                }
-            });
-        }
-
         function VueWatch() {
             var vm = new Vue({
                 el: '#appWatch',
                 data: {
-                    count: 0,
-                    kilometers: 0,
-                    meters: 0
-                },
-                watch: {
-                    kilometers: function (val) {
-                        this.kilometers = val;
-                        this.meters = this.kilometers * 1000;
-                    },
-                    meters: function (val) {
-                        this.meters = val;
-                        this.kilometers = this.meters / 1000;
-                    }
+                    count: 0
                 }
             });
 
-            // $watch 是一个实例方法
             vm.$watch('count', function (newValue, oldValue) {
                 console.warn('计数器值的变化 :' + newValue + ' 变为 ' + oldValue + '!');
             });
-
-            vm.$watch('kilometers', function (newValue, oldValue) {
-                // 这个回调将在 vm.kilometers 改变后调用
-                document.getElementById ("info").innerHTML = "修改前值为: " + oldValue + "，修改后值为: " + newValue;
-             });
         }
 
         function VueComputed() {
@@ -312,7 +277,6 @@
             VueFor();
             VueComputed();
             VueWatch();
-            VueClass();
         }
     </script>
 </body>
