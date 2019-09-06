@@ -7,21 +7,27 @@
     <!-- 样式代码 -->
     <style>
         body div {padding-left:15px;margin-bottom:15px;}
-        #Vue-Template,#Vue-Bind,#Vue-For,#Vue-Computed,#Vue-Watch,#Vue-Class {display:none;}
+        #Vue-Template,#Vue-Bind, #Vue-For,#Vue-Computed,#Vue-Watch,#Vue-Class,#Vue-Event/*,#Vue-Form*/ {display:none;}
         #app {font-family:'Avenir',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-align:center;color:#2c3e50;margin-top:60px;}
         .class1 {background:#444;color:#eee;}
         ul {margin:0;padding:0;margin-bottom:15px;}
         ul li {list-style:none;margin:0px;}
-        .active{width:90%;height:350px;background-color:forestgreen;}
-        .danger{display:block;width:80%;background-color:red;}
-        .red{color:red;}
-        .white{color:white;}
-        .blue{color:blue;}
+        .active {width:90%;height:350px;background-color:forestgreen;}
+        .danger {display:block;width:80%;background-color:red;}
+        .red {color:red;}
+        .white {color:white;}
+        .blue {color:blue;}
     </style>
     <script type="text/javascript" src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <script type="text/javascript" src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
 </head>
 <body>
+
+    <section id="Vue-Form">
+        <div id="appForm">
+
+        </div>
+    </section>
 
     <section id="Vue-Event">
         <div id="appEvent">
@@ -33,10 +39,10 @@
     </section>
 
     <section id="Vue-Class">
-        <div id="appBind">
+        <div id="appClass">
             <div :class="{ active: isActive,'text-danger': hasError }">
                 <p :class="classObject">&nbsp;</p>
-                <p :class="['errorClass' ,isActive ? activeClass : '']">&nbsp</p>
+                <p :class="['errorClass' ,isActive ? activeClass : '']">&nbsp;</p>
                 <p><span :class="['red','haha']">红字</span>&nbsp;&nbsp;<span :class="['white','haha']">白字</span>&nbsp;&nbsp;<span :class="['blue','haha']">蓝字</span></p>
                 <p :style="{ color:line,fontSize:'14px',textAlign:'center',marginLeft:'-50px',paddingTop:'10px' }">这是一条内联CSS样式</p>
                 <p :style="[styleObject]">Vue.js 真好用啊！</p>
@@ -89,74 +95,91 @@
     </section>
 
     <section id="Vue-Bind">
-        <div id="appUrl">
-            <a v-bind:href="url" target="_blank">打开百度</a>
-            <a :href="url" target="_blank">打开百度 - 缩写</a>
-        </div>
-        <div id="appClick">
-            <a v-on:click="doit">点击我</a>
-            <a @click="doit">点击我 - 缩写</a>
-        </div>
-        <div id="appForm">
-            {{'双向绑定\n'+ message}}<br />
-            <input v-model="message" />
-        </div>
-        <div id="appReverse">
-            <p>{{ msg }}</p>
-            <button v-on:click="reverseMsg">反转字符串</button>
-        </div>
-        <div id="appShow">
-            <div v-if="Math.random() > 0.5">
-                Sorry!
+        <div id="appBind">
+            <div>
+                <a v-bind:href="url" target="_blank">打开百度</a>
+                <a :href="url" target="_blank">打开百度 - 缩写</a>
             </div>
-            <div v-else>
-                Not Sorry!
+
+            <div>
+                <a v-on:click="doit">点击我</a>
+                <a @click="doit">点击我 - 缩写</a>
             </div>
-            <div v-if="word==='A'">
-                A
+
+            <div>
+                {{'双向绑定\n'+ message}}<br />
+                <input v-model="message" />
             </div>
-            <div v-else-if="word==='B'">
-                B
+
+            <div>
+                <p>{{ msg }}</p>
+                <button v-on:click="reverseMsg">反转字符串</button>
             </div>
-            <div v-else-if="word==='C'">
-                C
+
+            <div>
+                <div v-if="Math.random() > 0.5">
+                    Sorry!
+                </div>
+                <div v-else>
+                    Not Sorry!
+                </div>
+                <div v-if="word==='A'">
+                    A
+                </div>
+                <div v-else-if="word==='B'">
+                    B
+                </div>
+                <div v-else-if="word==='C'">
+                    C
+                </div>
+                <div v-else>
+                    Not A/B/C
+                </div>
+                <h2 v-show="ok">OK</h2>
             </div>
-            <div v-else>
-                Not A/B/C
-            </div>
-            <h2 v-show="ok">OK</h2>
         </div>
     </section>
 
     <section id="Vue-Template">
-        <div id="app">{{message}}</div>
-        <div id="appHtml" v-html="message"></div>
-        <div id="appCheck">
-            <label for="check">修改颜色</label>
-            <input id="check" type="checkbox" v-model="use" />
-            <br /><br />
-            <div v-bind:class="{'class1':use}">v-bind:class指令</div>
-            <div :class="{'class1':use}">:class指令</div>
-        </div>
-        <div id="appExpress">
-            {{5+5}}<br />
-            {{ok?'yes':'no'}}<br />
-            {{message.split('').reverse('').join('')}}
-            <div v-bind:id="'list-'+ id">我的VueDemo</div>
-        </div>
         <div id="appTemplate">
-            <p v-if="see">你能看见我吗？</p>
-            <template v-if="tempSee">
-                <div>标题</div>
-                <div>身体</div>
-                <div>底部</div>
-            </template>
+            <div>{{message}}</div>
+            <div v-html="message"></div>
+            <div>
+                <label for="check">修改颜色</label>
+                <input id="check" type="checkbox" v-model="use" />
+                <br /><br />
+                <div v-bind:class="{'class1':use}">v-bind:class指令</div>
+                <div :class="{'class1':use}">:class指令</div>
+            </div>
+            <div>
+                <p>{{5+5}}</p>
+                <p>{{ok?'yes':'no'}}</p>
+                <p>{{message2.split('').reverse('').join('')}}</p>
+                <p v-bind:id="'list-'+ id">我的VueDemo</p>
+            </div>
+            <div>
+                <p v-if="see">你能看见我吗？</p>
+                <template v-if="tempSee">
+                    <div>标题</div>
+                    <div>身体</div>
+                    <div>底部</div>
+                </template>
+            </div>
         </div>
     </section>
 
     <script type="text/javascript">
         window.onload = function () {
             init();
+        };
+
+        function VueForm() {
+            new Vue({
+                el: '#appForm',
+                data: {
+
+                }
+            });
         }
 
         function VueEvent() {
@@ -178,17 +201,24 @@
                     showMsg: function (msg) {
                         document.getElementById('pwd').type = "text";
                         alert(msg);
-                        setTimeout(() =>{
+                        setTimeout(() => {
                             document.getElementById('pwd').type = "password";
                         }, 3000);
                     }
                 }
-            })
+            });
+
+            var obj = document.getElementById("Vue-Event");
+            var objCss = obj.currentStyle ? obj.currentStyle : document.defaultView.getComputedStyle(obj, null);//获取CSS样式
+            console.warn(objCss.display);
+            if (objCss.display === "block") {
+                app.clickEvent();
+            }
         }
 
         function VueClass() {
             new Vue({
-                el: '#appBind',
+                el: '#appClass',
                 data: {
                     isActive: true,
                     activeClass: 'activeClass',
@@ -302,75 +332,34 @@
 
         function VueBind() {
             new Vue({
-                el: '#appUrl',
+                el: '#appBind',
                 data: {
-                    url: 'http://www.baidu.com'
-                }
-            });
-            new Vue({
-                el: '#appClick',
+                    url: 'http://www.baidu.com',
+                    message: 'Vue.js Demo',
+                    msg: '你是猪',
+                    word: 'D',
+                    ok: true
+                },
                 methods: {
                     doit: function () {//do 是关键字
                         alert('123');
-                    }
-                }
-            });
-            new Vue({
-                el: '#appForm',
-                data: {
-                    message: 'Vue.js Demo'
-                }
-            });
-            new Vue({
-                el: '#appReverse',
-                data: {
-                    msg: '你是猪'
-                },
-                methods: {
+                    },
                     reverseMsg: function () {
                         this.msg = this.msg.split('').reverse().join('');
                     }
-                }
-            });
-            new Vue({
-                el: '#appShow',
-                data: {
-                    word: 'D',
-                    ok: true
                 }
             });
         }
 
         function VueTemplate() {
             new Vue({
-                el: '#app',
-                data: {
-                    message: '<h1>Hello Vue!</h1>'
-                }
-            });
-            new Vue({
-                el: '#appHtml',
-                data: {
-                    message: '<h1>Hello Vue!</h1>'
-                }
-            });
-            new Vue({
-                el: '#appCheck',
-                data: {
-                    use: false,
-                }
-            });
-            new Vue({
-                el: '#appExpress',
-                data: {
-                    ok: true,
-                    message: "倾城我上马",
-                    id: 1
-                }
-            });
-            new Vue({
                 el: '#appTemplate',
                 data: {
+                    message: '<h1>Hello Vue!</h1>',
+                    message2: "倾城我上马",
+                    id: 1,
+                    use: false,
+                    ok: true,
                     see: true,
                     tempSee: true
                 }
@@ -385,6 +374,7 @@
             VueWatch();
             VueClass();
             VueEvent();
+            VueForm();
         }
     </script>
 </body>
