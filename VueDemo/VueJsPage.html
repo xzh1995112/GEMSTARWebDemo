@@ -228,10 +228,26 @@
         </div>
     </section>
 
+    <section id="Vue-Component">
+        <div id="appComponent">
+            <h1>Vue 组件</h1>
+            <!--TODO-->
+        </div>
+    </section>
+
     <script type="text/javascript">
         window.onload = function () {
             init();
         };
+
+        function VueComponent() {
+            new Vue({
+                el: '#appComponent',
+                data: {
+                    //TODO
+                }
+            });
+        }
 
         function VueForm() {
             new Vue({
@@ -432,6 +448,7 @@
         }
 
         function init() {
+            VueComponent();
             VueForm();
             VueEvent();
             VueClass();
