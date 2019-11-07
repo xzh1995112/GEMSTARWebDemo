@@ -4,4 +4,4 @@ node_modules/
 obj/
 *.suo
 *.user
-VuejsApp/dist/
+/VuejsApp/dist
