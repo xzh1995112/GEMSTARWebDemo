@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>Vue.js</title>
+    <!-- 样式代码 -->
+    <style>
+        body div {padding-left:15px;margin-bottom:15px;font-size:16px;font-family:"Microsoft YaHei";}
+        section{padding-bottom:20px;box-shadow: 0px 2px 2px #888;}
+        input,select,textarea {outline-style:none;border:1px solid #ccc;border-radius:3px;padding:13px 14px;}
+        input:focus,select:focus,textarea:focus {border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
+        #Vue-Template,#Vue-IF,#Vue-For,#Vue-Computed,#Vue-Watch,#Vue-Class,#Vue-Event,#Vue-Form {display:none;}
+        .class1 {background:#444;color:#eee;}
+        ul {margin:0;padding:0;margin-bottom:15px;}
+        ul li {list-style:none;margin:0px;}
+        .active {width:90%;height:350px;background-color:forestgreen;}
+        .danger {display:block;width:80%;background-color:red;}
+        .red {color:red;}
+        .white {color:white;}
+        .blue {color:blue;}
+    </style>
+    <script type="text/javascript" src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+</head>
+<body>
+    <section id="Vue-Template">
+        <h2>Template 模板</h2>
+        <div id="appTemplate">
+            <div>{{message}}</div>
+            <div v-html="message"></div>
+            <div>
+                <label for="check">修改颜色</label>
+                <input id="check" type="checkbox" v-model="use" />
+                <br /><br />
+                <div v-bind:class="{'class1':use}">v-bind:class指令</div>
+                <div :class="{'class1':use}">:class指令</div>
+            </div>
+            <div>
+                <p>{{5+5}}</p>
+                <p>{{ok?'yes':'no'}}</p>
+                <p>{{message2.split('').reverse('').join('')}}</p>
+                <p v-bind:id="'list-'+ id">我的VueDemo</p>
+            </div>
+            <div>
+                <a v-bind:href="url" target="_blank">打开百度</a>
+                <a :href="url" target="_blank">打开百度 - 缩写</a>
+            </div>
+
+            <div>
+                <a v-on:click="doit">点击我</a>
+                <a @click="doit">点击我 - 缩写</a>
+            </div>
+
+            <div>
+                {{'双向绑定\n'+ message3}}<br />
+                <input v-model="message3" />
+            </div>
+
+            <div>
+                <p>{{ msg }}</p>
+                <button v-on:click="reverseMsg">反转字符串</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="Vue-IF">
+        <h2>IF 条件判断</h2>
+        <div id="appIF">
+            <div>
+                <p v-if="see">你能看见我吗？</p>
+                <template v-if="tempSee">
+                    <div>标题</div>
+                    <div>身体</div>
+                    <div>底部</div>
+                </template>
+            </div>
+            <div>
+                <div v-if="Math.random() > 0.5">
+                    Sorry!
+                </div>
+                <div v-else>
+                    Not Sorry!
+                </div>
+                <div v-if="word==='A'">
+                    A
+                </div>
+                <div v-else-if="word==='B'">
+                    B
+                </div>
+                <div v-else-if="word==='C'">
+                    C
+                </div>
+                <div v-else>
+                    Not A/B/C
+                </div>
+                <h2 v-show="ok">OK</h2>
+            </div>
+        </div>
+    </section>
+
+    <section id="Vue-For">
+        <h2>For 循环</h2>
+        <div id="appFor">
+            <ul>
+                <li v-for="lesson in lessons">{{lesson.name}}</li>
+            </ul>
+            <ul>
+                <template v-for="lesson in lessons">
+                    <li>{{lesson.name}}</li>
+                    <li>----------------</li>
+                </template>
+            </ul>
+            <ul>
+                <li v-for="stu in student">{{stu}}</li>
+            </ul>
+            <ul>
+                <li v-for="(value,key) in student">{{key}}:{{value}}</li>
+            </ul>
+            <ul>
+                <li v-for="(value,key,index) in student">{{index}}.{{key}}:{{value}}</li>
+            </ul>
+            <ul>
+                <li v-for="num in 10">{{num}}</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="Vue-Computed">
+        <h2>Computed 计算</h2>
+        <div id="appComputed">
+            <p @click="reverseMsg2">{{ reverseMsg1 }}</p>
+            <p v-show="false">{{reverseMsg1}}</p>
+            <p id="stuInfo"></p>
+        </div>
+    </section>
+
+    <section id="Vue-Watch">
+        <h2>Watch 监视</h2>
+        <div id="appWatch">
+            <p style="font-size:large;">计数器：{{ count }}</p>
+            <button type="button" @click="count++">点击我</button><br />
+            <input type="number" id="km" v-model="kilometers" /> 千米 => <input type="number" id="m" v-model="meters" /> 米
+            <p id="info"></p>
+        </div>
+    </section>
+
+    <section id="Vue-Class">
+        <h2>Class 样式绑定</h2>
+        <div id="appClass">
+            <div :class="{ active: isActive,'text-danger': hasError }">
+                <p :class="classObject">&nbsp;</p>
+                <p :class="['errorClass' ,isActive ? activeClass : '']">&nbsp;</p>
+                <p><span :class="['red','haha']">红字</span>&nbsp;&nbsp;<span :class="['white','haha']">白字</span>&nbsp;&nbsp;<span :class="['blue','haha']">蓝字</span></p>
+                <p :style="{ color:line,fontSize:'14px',textAlign:'center',marginLeft:'-50px',paddingTop:'10px' }">这是一条内联CSS样式</p>
+                <p :style="[styleObject]">Vue.js 真好用啊！</p>
+                <p :style="[styleObject,overObject]">Vue.js 真好用啊！</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="Vue-Event">
+        <h2>Event 事件</h2>
+        <div id="appEvent">
+            <p><button @click="count += 1">这个按钮点击了 {{count}} 次</button></p> <!--@click="count++"-->
+            <p><button v-on:click="clickEvent">点击查看次数</button></p>
+            <p>密码：<input id="pwd" type="password" v-model="pwd" />&nbsp;<button @click="showMsg(pwd)">查看密码</button></p>
+            <p><button @click.once="alert(event.target.innerText)">只能点一次</button></p>
+        </div>
+    </section>
+
+    <section id="Vue-Form">
+        <h2>Form</h2>
+        <div id="appForm">
+            <div>
+                <h3>input 元素</h3>
+                <p><input v-model="message" placeholder="请输入内容" /></p>
+                <p>消息：{{message}}</p>
+            </div>
+
+            <div>
+                <h3>textarea 元素</h3>
+                <p><textarea cols="30" rows="5" placeholder="请输入备注">{{message2}}</textarea></p>
+                <p style="white-space:pre" v-model="message2"></p>
+            </div>
+            <div>
+                <h3>checkbox 元素</h3>
+                <p>
+                    单个：
+                    <input type="checkbox" v-model="checked" id="checked" />
+                    <label for="checked">{{checked?"已勾选":"未勾选"}}</label>
+                </p>
+                <p>
+                    多个：
+                    <input type="checkbox" v-model="checkedNames" id="ming" value="小明" />
+                    <label for="ming">小明</label>
+                    <input type="checkbox" v-model="checkedNames" id="qiang" value="小强" />
+                    <label for="qiang">小强</label>
+                    <input type="checkbox" v-model="checkedNames" id="hua" value="小花" />
+                    <label for="hua">小花</label>
+                </p>
+                <span>选择的值为：{{checkedNames}}</span>
+            </div>
+            <div>
+                <h3>radio 元素</h3>
+                <p>
+                    <input type="radio" id="male" v-model="picked" value="male" />
+                    <label for="male">男</label>
+                    <input type="radio" id="female" v-model="picked" value="female" />
+                    <label for="female">女</label>
+                    <input type="radio" id="none" v-model="picked" value="none" />
+                    <label for="none">未知</label>
+                </p>
+                <span>选中值为: {{ picked }}</span>
+            </div>
+            <div>
+                <h3>select 元素</h3>
+                <p>
+                    <select v-model="selected" name="student">
+                        <option value="">==请选择一个名字==</option>
+                        <option value="小明">小明</option>
+                        <option value="小强">小强</option>
+                        <option value="小花">小花</option>
+                    </select>
+                </p>
+                <span>选择的名字是: {{ selected }}</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="Vue-Component">
+        <div id="appComponent">
+            <h1>Vue 组件</h1>
+            <!--TODO-->
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            init();
+        };
+
+        function VueComponent() {
+            new Vue({
+                el: '#appComponent',
+                data: {
+                    //TODO
+                }
+            });
+        }
+
+        function VueForm() {
+            new Vue({
+                el: '#appForm',
+                data: {
+                    message: '',
+                    message2: '',
+                    checked: false,
+                    checkedNames: [],
+                    picked: 'male',
+                    selected: ''
+                }
+            });
+        }
+
+        function VueEvent() {
+            var app = new Vue({
+                el: '#appEvent',
+                data: {
+                    count: 0,
+                    pwd: '123456'
+                },
+                methods: {
+                    clickEvent: function (event) {
+                        this.count++;
+                        alert("当前点击次数 " + this.count + "!");
+                        if (event) {
+                            console.warn(event.target)
+                            alert(event.target.tagName);
+                        }
+                    },
+                    showMsg: function (msg) {
+                        document.getElementById('pwd').type = "text";
+                        alert(msg);
+                        setTimeout(() => {
+                            document.getElementById('pwd').type = "password";
+                        }, 3000);
+                    }
+                }
+            });
+
+            var obj = document.getElementById("Vue-Event");
+            var objCss = obj.currentStyle ? obj.currentStyle : document.defaultView.getComputedStyle(obj, null);//获取CSS样式
+            console.warn(objCss.display);
+            if (objCss.display === "block") {
+                app.clickEvent();
+            }
+        }
+
+        function VueClass() {
+            new Vue({
+                el: '#appClass',
+                data: {
+                    isActive: true,
+                    activeClass: 'activeClass',
+                    hasError: false,
+                    line: '#FF00FF',
+                    error: {
+                        value: true,
+                        type: "vue"
+                    },
+                    styleObject: {
+                        color: 'white',
+                        fontSize: '30px'
+                    },
+                    overObject: {
+                        'font-weight': 800 //fontWeight:800
+                    }
+                },
+                computed: {
+                    classObject: function () {
+                        return {
+                            base: true,
+                            isActive: this.isActive && !this.error.value,
+                            'danger': this.error.value && this.error.type === "vue"
+                        }
+                    }
+                }
+            });
+        }
+
+        function VueWatch() {
+            var vm = new Vue({
+                el: '#appWatch',
+                data: {
+                    count: 0,
+                    kilometers: 0,
+                    meters: 0
+                },
+                watch: {
+                    kilometers: function (val) {
+                        this.kilometers = val;
+                        this.meters = this.kilometers * 1000;
+                    },
+                    meters: function (val) {
+                        this.meters = val;
+                        this.kilometers = this.meters / 1000;
+                    }
+                }
+            });
+
+            // $watch 是一个实例方法
+            vm.$watch('count', function (newValue, oldValue) {
+                console.warn('计数器值的变化 :' + newValue + ' 变为 ' + oldValue + '!');
+            });
+
+            vm.$watch('kilometers', function (newValue, oldValue) {
+                // 这个回调将在 vm.kilometers 改变后调用
+                document.getElementById("info").innerHTML = "修改前值为: " + oldValue + "，修改后值为: " + newValue;
+            });
+        }
+
+        function VueComputed() {
+            var vm = new Vue({
+                el: '#appComputed',
+                data: {
+                    reverseMsg1: '许你一世繁花'
+                },
+                computed: {
+                    reverseMsg: function () {
+                        return this.reverseMsg1.split('').reverse().join('');
+                    },
+                    studentInfo: {
+                        get: function () {
+                            return this.name + ' ' + this.sex + ' ' + this.age;
+                        },
+                        set: function (newValue) {
+                            this.name = newValue.split(' ')[0];
+                            this.sex = newValue.split(' ')[1];
+                            this.age = newValue.split(' ')[2];
+                        }
+                    }
+                },
+                methods: {
+                    reverseMsg2: function () {
+                        this.reverseMsg1 = this.reverseMsg1.split('').reverse().join('');
+                    }
+                }
+            })
+
+            vm.studentInfo = "小明 男 18";
+            document.getElementById("stuInfo").innerHTML = `姓名：${vm.name} 性别：${vm.sex}  年龄${vm.age}`;
+        }
+
+        function VueFor() {
+            new Vue({
+                el: '#appFor',
+                data: {
+                    lessons: [
+                        { name: "小明" },
+                        { name: "小强" },
+                        { name: "小花" }
+                    ],
+                    student: {
+                        name: '小明',
+                        sex: '男',
+                        age: 18,
+                        address: '深圳市南山区蛇口街道后海新村10-3',
+                    }
+                }
+            })
+        }
+
+        function VueIF() {
+            new Vue({
+                el: '#appIF',
+                data: {
+                    see: true,
+                    tempSee: true,
+                    word: 'D',
+                    ok: true
+                }
+            });
+        }
+
+        function VueTemplate() {
+            new Vue({
+                el: '#appTemplate',
+                data: {
+                    message: '<h1>Hello Vue!</h1>',
+                    message2: "倾城我上马",
+                    message3: 'Vue.js Demo',
+                    url: 'http://www.baidu.com',
+                    msg: '你是猪',
+                    id: 1,
+                    use: false,
+                    ok: true
+                },
+                methods: {
+                    doit: function () {//do 是关键字
+                        alert('123');
+                    },
+                    reverseMsg: function () {
+                        this.msg = this.msg.split('').reverse().join('');
+                    }
+                }
+            });
+        }
+
+        function init() {
+            VueComponent();
+            VueForm();
+            VueEvent();
+            VueClass();
+            VueWatch();
+            VueComputed();
+            VueFor();
+            VueIF();
+            VueTemplate();
+        }
+    </script>
+</body>
+</html>
