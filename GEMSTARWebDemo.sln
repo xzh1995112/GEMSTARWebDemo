@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.489
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GEMSTARWebDemo", "GEMSTARWebDemo\", "{8D1B8312-A911-4793-84FA-2545A0C45D54}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -27,7 +27,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GEMSTARWebDemo", "GEMSTARWe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{2768454E-D1C0-4B1D-A103-C7117A5D24F4}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "VuejsApp", "VuejsApp\VuejsApp.njsproj", "{C7C41D25-3F25-44BA-8FD4-0B7F113BBD96}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "VuetsApp", "VuejsApp\VuetsApp.njsproj", "{C7C41D25-3F25-44BA-8FD4-0B7F113BBD96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppForm", "AppForm\AppForm.csproj", "{0B4C9BED-5EF8-4B0B-A56F-926EE071666F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{C7C41D25-3F25-44BA-8FD4-0B7F113BBD96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7C41D25-3F25-44BA-8FD4-0B7F113BBD96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7C41D25-3F25-44BA-8FD4-0B7F113BBD96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B4C9BED-5EF8-4B0B-A56F-926EE071666F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B4C9BED-5EF8-4B0B-A56F-926EE071666F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B4C9BED-5EF8-4B0B-A56F-926EE071666F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B4C9BED-5EF8-4B0B-A56F-926EE071666F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
