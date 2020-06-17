@@ -28,38 +28,54 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-			this.button1 = new System.Windows.Forms.Button();
-			this.SuspendLayout();
-			// 
-			// richTextBox1
-			// 
-			this.richTextBox1.Location = new System.Drawing.Point(12, 43);
-			this.richTextBox1.Name = "richTextBox1";
-			this.richTextBox1.Size = new System.Drawing.Size(1490, 730);
-			this.richTextBox1.TabIndex = 0;
-			this.richTextBox1.Text = "";
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(29, 12);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(143, 23);
-			this.button1.TabIndex = 1;
-			this.button1.Text = "PDF转TXT";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// Form1
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1514, 785);
-			this.Controls.Add(this.button1);
-			this.Controls.Add(this.richTextBox1);
-			this.Name = "Form1";
-			this.Text = "Form1";
-			this.ResumeLayout(false);
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(806, 715);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(11, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(111, 24);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "PDF转TXT";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Location = new System.Drawing.Point(1, 41);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(806, 715);
+            this.panel1.TabIndex = 2;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(807, 755);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
+            this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Form1";
+            this.panel1.ResumeLayout(false);
+            this.ResumeLayout(false);
 
 		}
 
@@ -67,6 +83,7 @@
 
 		private System.Windows.Forms.RichTextBox richTextBox1;
 		private System.Windows.Forms.Button button1;
-	}
+        private System.Windows.Forms.Panel panel1;
+    }
 }
 

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <title>viewer</title>
+    <link href="viewerjs/viewer.min.css" rel="stylesheet" />
+    <style>
+        #images img {
+            width: 25%;
+            height: 128px;
+        }
+    </style>
+</head>
+<body>
+    <div id="Page">
+        <button onclick="ShowPic('http://pic.90sjimg.com/design/01/40/91/47/59396e209bb08.png')">展示图片</button>
+        <button onclick="ShowPic('http://res.gshis.com/Emeb4b3a1a-1962-42bd-b1b7-e7cc2abecd3f')">切换图片</button><br />
+        <img id="image" src="" height="150" alt="维修工"><br />
+        <button onclick="AddPics('http://res.gshis.com/Emeb4b3a1a-1962-42bd-b1b7-e7cc2abecd3f')">增加图片</button><br />
+        <div id="images">
+            <img src="http://pic.90sjimg.com/design/01/40/91/47/59396e209bb08.png">
+            <img src="http://pic.90sjimg.com/design/01/40/91/47/59396e209bb08.png">
+            <img src="http://pic.90sjimg.com/design/01/40/91/47/59396e209bb08.png">
+            <img src="http://pic.90sjimg.com/design/01/40/91/47/59396e209bb08.png">
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
+    <script>
+        $(function () {
+            // View a list of images
+            $('#images').viewer();
+        })
+
+        function ShowPic(src) {
+            $("#image").attr("src", src);
+            $('#image').viewer();
+        }
+
+        function AddPics(src) {
+            $("#images").append("<img src='" + src + "'>");
+            $('#images').viewer('destroy');
+            $('#images').viewer();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EquipmentService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:855/EquipmentService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:855/EquipmentService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEquipmentService_SynChangeScheduleStatusInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SynChangeScheduleStatusInfo" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_SynChangeScheduleStatusInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SynChangeScheduleStatusInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_SynScheduleInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SynScheduleInfo" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_SynScheduleInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SynScheduleInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_HospitalInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:HospitalInfo" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_HospitalInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HospitalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_DepartmentsInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:DepartmentsInfo" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_DepartmentsInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DepartmentsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_DoctorsInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:DoctorsInfo" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_DoctorsInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DoctorsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_DepartmentsParentInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:DepartmentsParentInfo" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_DepartmentsParentInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DepartmentsParentInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_DepartmentsParentInfoNotWhere_InputMessage">
+    <wsdl:part name="parameters" element="tns:DepartmentsParentInfoNotWhere" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_DepartmentsParentInfoNotWhere_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DepartmentsParentInfoNotWhereResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_QueryHYD_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryHYD" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_QueryHYD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryHYDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_ReportPrint_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReportPrint" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_ReportPrint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReportPrintResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_Get_County_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_County" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_Get_County_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_CountyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_Get_Province_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Province" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_Get_Province_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_ProvinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_Get_City_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_City" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_Get_City_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_CityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_Get_Nation_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Nation" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_Get_Nation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_NationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDocterList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocterList" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDocterList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocterListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDeptList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeptList" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDeptList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeptListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetScheduleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetScheduleList" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetScheduleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetScheduleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDeptInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeptInfo" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDeptInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeptInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDoctorListEx_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorListEx" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDoctorListEx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorListExResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDoctorInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorInfo" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDoctorInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDeptDoctors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeptDoctors" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDeptDoctors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeptDoctorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDoctorReMarks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorReMarks" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDoctorReMarks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorReMarksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetSuperDeptFromDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuperDeptFromDate" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetSuperDeptFromDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuperDeptFromDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDeptListFromDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeptListFromDate" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDeptListFromDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeptListFromDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDoctorFromDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorFromDate" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetDoctorFromDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorFromDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetSingleDoctorSchedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleDoctorSchedule" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_GetSingleDoctorSchedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleDoctorScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_QueryHYDFromPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryHYDFromPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IEquipmentService_QueryHYDFromPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryHYDFromPatientIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEquipmentService">
+    <wsdl:operation name="SynChangeScheduleStatusInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/SynChangeScheduleStatusInfo" message="tns:IEquipmentService_SynChangeScheduleStatusInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/SynChangeScheduleStatusInfoResponse" message="tns:IEquipmentService_SynChangeScheduleStatusInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SynScheduleInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/SynScheduleInfo" message="tns:IEquipmentService_SynScheduleInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/SynScheduleInfoResponse" message="tns:IEquipmentService_SynScheduleInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HospitalInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/HospitalInfo" message="tns:IEquipmentService_HospitalInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/HospitalInfoResponse" message="tns:IEquipmentService_HospitalInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DepartmentsInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/DepartmentsInfo" message="tns:IEquipmentService_DepartmentsInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/DepartmentsInfoResponse" message="tns:IEquipmentService_DepartmentsInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoctorsInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/DoctorsInfo" message="tns:IEquipmentService_DoctorsInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/DoctorsInfoResponse" message="tns:IEquipmentService_DoctorsInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DepartmentsParentInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/DepartmentsParentInfo" message="tns:IEquipmentService_DepartmentsParentInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/DepartmentsParentInfoResponse" message="tns:IEquipmentService_DepartmentsParentInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DepartmentsParentInfoNotWhere">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/DepartmentsParentInfoNotWhere" message="tns:IEquipmentService_DepartmentsParentInfoNotWhere_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/DepartmentsParentInfoNotWhereResponse" message="tns:IEquipmentService_DepartmentsParentInfoNotWhere_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryHYD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/QueryHYD" message="tns:IEquipmentService_QueryHYD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/QueryHYDResponse" message="tns:IEquipmentService_QueryHYD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportPrint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/ReportPrint" message="tns:IEquipmentService_ReportPrint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/ReportPrintResponse" message="tns:IEquipmentService_ReportPrint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_County">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/Get_County" message="tns:IEquipmentService_Get_County_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/Get_CountyResponse" message="tns:IEquipmentService_Get_County_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Province">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/Get_Province" message="tns:IEquipmentService_Get_Province_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/Get_ProvinceResponse" message="tns:IEquipmentService_Get_Province_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_City">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/Get_City" message="tns:IEquipmentService_Get_City_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/Get_CityResponse" message="tns:IEquipmentService_Get_City_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Nation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/Get_Nation" message="tns:IEquipmentService_Get_Nation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/Get_NationResponse" message="tns:IEquipmentService_Get_Nation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocterList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/GetDocterList" message="tns:IEquipmentService_GetDocterList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/GetDocterListResponse" message="tns:IEquipmentService_GetDocterList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/GetDeptList" message="tns:IEquipmentService_GetDeptList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/GetDeptListResponse" message="tns:IEquipmentService_GetDeptList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/GetScheduleList" message="tns:IEquipmentService_GetScheduleList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/GetScheduleListResponse" message="tns:IEquipmentService_GetScheduleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/GetDeptInfo" message="tns:IEquipmentService_GetDeptInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/GetDeptInfoResponse" message="tns:IEquipmentService_GetDeptInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorListEx">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/GetDoctorListEx" message="tns:IEquipmentService_GetDoctorListEx_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/GetDoctorListExResponse" message="tns:IEquipmentService_GetDoctorListEx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/GetDoctorInfo" message="tns:IEquipmentService_GetDoctorInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/GetDoctorInfoResponse" message="tns:IEquipmentService_GetDoctorInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptDoctors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/GetDeptDoctors" message="tns:IEquipmentService_GetDeptDoctors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/GetDeptDoctorsResponse" message="tns:IEquipmentService_GetDeptDoctors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorReMarks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/GetDoctorReMarks" message="tns:IEquipmentService_GetDoctorReMarks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/GetDoctorReMarksResponse" message="tns:IEquipmentService_GetDoctorReMarks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuperDeptFromDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/GetSuperDeptFromDate" message="tns:IEquipmentService_GetSuperDeptFromDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/GetSuperDeptFromDateResponse" message="tns:IEquipmentService_GetSuperDeptFromDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptListFromDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/GetDeptListFromDate" message="tns:IEquipmentService_GetDeptListFromDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/GetDeptListFromDateResponse" message="tns:IEquipmentService_GetDeptListFromDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorFromDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/GetDoctorFromDate" message="tns:IEquipmentService_GetDoctorFromDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/GetDoctorFromDateResponse" message="tns:IEquipmentService_GetDoctorFromDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleDoctorSchedule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/GetSingleDoctorSchedule" message="tns:IEquipmentService_GetSingleDoctorSchedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/GetSingleDoctorScheduleResponse" message="tns:IEquipmentService_GetSingleDoctorSchedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryHYDFromPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEquipmentService/QueryHYDFromPatientID" message="tns:IEquipmentService_QueryHYDFromPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEquipmentService/QueryHYDFromPatientIDResponse" message="tns:IEquipmentService_QueryHYDFromPatientID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEquipmentService" type="tns:IEquipmentService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SynChangeScheduleStatusInfo">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/SynChangeScheduleStatusInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SynScheduleInfo">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/SynScheduleInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HospitalInfo">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/HospitalInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DepartmentsInfo">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/DepartmentsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoctorsInfo">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/DoctorsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DepartmentsParentInfo">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/DepartmentsParentInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DepartmentsParentInfoNotWhere">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/DepartmentsParentInfoNotWhere" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryHYD">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/QueryHYD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportPrint">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/ReportPrint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_County">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/Get_County" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Province">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/Get_Province" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_City">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/Get_City" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Nation">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/Get_Nation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocterList">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/GetDocterList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptList">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/GetDeptList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleList">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/GetScheduleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptInfo">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/GetDeptInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorListEx">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/GetDoctorListEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorInfo">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/GetDoctorInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptDoctors">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/GetDeptDoctors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorReMarks">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/GetDoctorReMarks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuperDeptFromDate">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/GetSuperDeptFromDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptListFromDate">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/GetDeptListFromDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorFromDate">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/GetDoctorFromDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleDoctorSchedule">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/GetSingleDoctorSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryHYDFromPatientID">
+      <soap:operation soapAction="http://tempuri.org/IEquipmentService/QueryHYDFromPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EquipmentService">
+    <wsdl:port name="BasicHttpBinding_IEquipmentService" binding="tns:BasicHttpBinding_IEquipmentService">
+      <soap:address location="http://localhost:855/EquipmentService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HisService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:855/HisService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:855/HisService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IHisService_HospitalInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:HospitalInfo" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_HospitalInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HospitalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_DepartmentsInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:DepartmentsInfo" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_DepartmentsInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DepartmentsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_DepartmentsParentInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:DepartmentsParentInfo" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_DepartmentsParentInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DepartmentsParentInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_DoctorsInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:DoctorsInfo" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_DoctorsInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DoctorsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_SynScheduleInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SynScheduleInfo" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_SynScheduleInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SynScheduleInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_SynChangeScheduleStatusInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SynChangeScheduleStatusInfo" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_SynChangeScheduleStatusInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SynChangeScheduleStatusInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_RegisterDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterDocument" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_RegisterDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_ReportPrint_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReportPrint" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_ReportPrint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReportPrintResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_County_InputMessage">
+    <wsdl:part name="parameters" element="tns:CT_County" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_County_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CT_CountyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_Province_InputMessage">
+    <wsdl:part name="parameters" element="tns:CT_Province" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_Province_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CT_ProvinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_City_InputMessage">
+    <wsdl:part name="parameters" element="tns:CT_City" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_City_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CT_CityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_DeptCareProv_InputMessage">
+    <wsdl:part name="parameters" element="tns:CT_DeptCareProv" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_DeptCareProv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CT_DeptCareProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_CareProv_InputMessage">
+    <wsdl:part name="parameters" element="tns:CT_CareProv" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_CareProv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CT_CareProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_Dept_InputMessage">
+    <wsdl:part name="parameters" element="tns:CT_Dept" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_Dept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CT_DeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_Nation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CT_Nation" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_CT_Nation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CT_NationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_Deleted_InputMessage">
+    <wsdl:part name="parameters" element="tns:Deleted" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_Deleted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_RegisterCareProvImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterCareProvImage" />
+  </wsdl:message>
+  <wsdl:message name="IHisService_RegisterCareProvImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterCareProvImageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IHisService">
+    <wsdl:operation name="HospitalInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/HospitalInfo" message="tns:IHisService_HospitalInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/HospitalInfoResponse" message="tns:IHisService_HospitalInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DepartmentsInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/DepartmentsInfo" message="tns:IHisService_DepartmentsInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/DepartmentsInfoResponse" message="tns:IHisService_DepartmentsInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DepartmentsParentInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/DepartmentsParentInfo" message="tns:IHisService_DepartmentsParentInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/DepartmentsParentInfoResponse" message="tns:IHisService_DepartmentsParentInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoctorsInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/DoctorsInfo" message="tns:IHisService_DoctorsInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/DoctorsInfoResponse" message="tns:IHisService_DoctorsInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SynScheduleInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/SynScheduleInfo" message="tns:IHisService_SynScheduleInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/SynScheduleInfoResponse" message="tns:IHisService_SynScheduleInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SynChangeScheduleStatusInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/SynChangeScheduleStatusInfo" message="tns:IHisService_SynChangeScheduleStatusInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/SynChangeScheduleStatusInfoResponse" message="tns:IHisService_SynChangeScheduleStatusInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/RegisterDocument" message="tns:IHisService_RegisterDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/RegisterDocumentResponse" message="tns:IHisService_RegisterDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportPrint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/ReportPrint" message="tns:IHisService_ReportPrint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/ReportPrintResponse" message="tns:IHisService_ReportPrint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CT_County">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/CT_County" message="tns:IHisService_CT_County_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/CT_CountyResponse" message="tns:IHisService_CT_County_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CT_Province">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/CT_Province" message="tns:IHisService_CT_Province_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/CT_ProvinceResponse" message="tns:IHisService_CT_Province_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CT_City">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/CT_City" message="tns:IHisService_CT_City_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/CT_CityResponse" message="tns:IHisService_CT_City_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CT_DeptCareProv">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/CT_DeptCareProv" message="tns:IHisService_CT_DeptCareProv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/CT_DeptCareProvResponse" message="tns:IHisService_CT_DeptCareProv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CT_CareProv">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/CT_CareProv" message="tns:IHisService_CT_CareProv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/CT_CareProvResponse" message="tns:IHisService_CT_CareProv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CT_Dept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/CT_Dept" message="tns:IHisService_CT_Dept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/CT_DeptResponse" message="tns:IHisService_CT_Dept_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CT_Nation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/CT_Nation" message="tns:IHisService_CT_Nation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/CT_NationResponse" message="tns:IHisService_CT_Nation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Deleted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/Deleted" message="tns:IHisService_Deleted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/DeletedResponse" message="tns:IHisService_Deleted_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterCareProvImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHisService/RegisterCareProvImage" message="tns:IHisService_RegisterCareProvImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHisService/RegisterCareProvImageResponse" message="tns:IHisService_RegisterCareProvImage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IHisService" type="tns:IHisService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HospitalInfo">
+      <soap:operation soapAction="http://tempuri.org/IHisService/HospitalInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DepartmentsInfo">
+      <soap:operation soapAction="http://tempuri.org/IHisService/DepartmentsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DepartmentsParentInfo">
+      <soap:operation soapAction="http://tempuri.org/IHisService/DepartmentsParentInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoctorsInfo">
+      <soap:operation soapAction="http://tempuri.org/IHisService/DoctorsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SynScheduleInfo">
+      <soap:operation soapAction="http://tempuri.org/IHisService/SynScheduleInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SynChangeScheduleStatusInfo">
+      <soap:operation soapAction="http://tempuri.org/IHisService/SynChangeScheduleStatusInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDocument">
+      <soap:operation soapAction="http://tempuri.org/IHisService/RegisterDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportPrint">
+      <soap:operation soapAction="http://tempuri.org/IHisService/ReportPrint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CT_County">
+      <soap:operation soapAction="http://tempuri.org/IHisService/CT_County" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CT_Province">
+      <soap:operation soapAction="http://tempuri.org/IHisService/CT_Province" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CT_City">
+      <soap:operation soapAction="http://tempuri.org/IHisService/CT_City" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CT_DeptCareProv">
+      <soap:operation soapAction="http://tempuri.org/IHisService/CT_DeptCareProv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CT_CareProv">
+      <soap:operation soapAction="http://tempuri.org/IHisService/CT_CareProv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CT_Dept">
+      <soap:operation soapAction="http://tempuri.org/IHisService/CT_Dept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CT_Nation">
+      <soap:operation soapAction="http://tempuri.org/IHisService/CT_Nation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deleted">
+      <soap:operation soapAction="http://tempuri.org/IHisService/Deleted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterCareProvImage">
+      <soap:operation soapAction="http://tempuri.org/IHisService/RegisterCareProvImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HisService">
+    <wsdl:port name="BasicHttpBinding_IHisService" binding="tns:BasicHttpBinding_IHisService">
+      <soap:address location="http://localhost:855/HisService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

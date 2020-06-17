@@ -1,0 +1,78 @@
+{
+  "_from": "weui",
+  "_id": "weui@2.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-j/LzfURBS72kQySHaenzO61Mycz0BtzSsA7TDYB6bJ/t/vt4ZdDDzUh4YaqeITZBDZECgQ8xZhMWwjZU1rvUEg==",
+  "_location": "/weui",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "weui",
+    "name": "weui",
+    "escapedName": "weui",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/weui/-/weui-2.0.1.tgz",
+  "_shasum": "ba8824ce83c82b411bde5ab78464034a96165d7a",
+  "_spec": "weui",
+  "_where": "C:\\Users\\Macaber",
+  "author": {
+    "name": "wechat ui team"
+  },
+  "bugs": {
+    "url": "https://github.com/weui/weui/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "A UI library by WeChat official design team, includes the most useful widgets/modules in mobile web applications.",
+  "devDependencies": {
+    "autoprefixer": "^6.3.1",
+    "browser-sync": "^2.9.11",
+    "gulp": "^3.9.1",
+    "gulp-cssnano": "^2.0.0",
+    "gulp-header": "^1.7.1",
+    "gulp-less": "^3.0.2",
+    "gulp-postcss": "^6.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.2",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-tap": "^0.1.3",
+    "inquirer": "^6.5.0",
+    "picklog": "^2.0.1",
+    "postcss-discard-comments": "^2.0.4",
+    "yargs": "^1.3.3"
+  },
+  "homepage": "https://github.com/weui/weui",
+  "keywords": [
+    "weui",
+    "wechat",
+    "weixin",
+    "css",
+    "less",
+    "mobile"
+  ],
+  "less": "src/style/weui.less",
+  "license": "MIT",
+  "main": "dist/style/weui.css",
+  "name": "weui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weui/weui.git"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "changelog": "picklog -lw CHANGELOG.md",
+    "release": "gulp release",
+    "start": "gulp -ws",
+    "test": "gulp build"
+  },
+  "style": "dist/style/weui.css",
+  "version": "2.0.1"
+}

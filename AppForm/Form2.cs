@@ -11,6 +11,8 @@ using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AppForm.EquipmentService;
+using AppForm.HisService;
 
 namespace AppForm
 {
@@ -23,7 +25,8 @@ namespace AppForm
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            HisServiceClient hisClient = new HisServiceClient();
+            EquipmentServiceClient equclient = new EquipmentServiceClient();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,11 +77,17 @@ namespace AppForm
         //注册
         public void WriteFile()
         {
-            string path = Application.StartupPath + "/test.txt";
+            string path = Path.Combine(Application.StartupPath, "FileLog", DateTime.Now.ToString("yyyy-MM-dd"));
 
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            path += "/test.txt";
             FileStream fs = new FileStream(path, FileMode.Append);
             StreamWriter sr = new StreamWriter(fs);
-            sr.WriteLine(DateTime.Now.Ticks);//开始写入值
+            sr.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff"));//开始写入值
             sr.Close();
             fs.Close();
         }

@@ -8,6 +8,28 @@ namespace ConsoleApp1
     {
         static Timer timer = null;
         static int time = 120;
+
+        private const string domainComUrl = "http://pms.gshis.com";
+        private const string domainNetUrl = "http://pms.gshis.net";
+        private const string domainCnUrl = "http://jlpms.gshis.cn";
+        public static string domainUrl
+        {
+            get
+            {
+                var domain = "http://l.gshis.cn";
+                if (domain.Contains(".gshis.net"))
+                {
+                    return domainNetUrl;
+                }
+
+                if (domain.Contains(".gshis.cn"))
+                {
+                    return domainCnUrl;
+                }
+                return domainComUrl;
+            }
+        }
+
         static void Main(string[] args)
         {
             #region MyRegion
@@ -81,8 +103,12 @@ namespace ConsoleApp1
 
             #endregion
 
-            Console.WriteLine(CryptHelper.DecryptDES("JekU5x1j+17mBuir4pFcNg=="));
+            //Console.WriteLine(CryptHelper.DecryptDES("QQw5L+a0iRwF5LQjfFSUqQ=="));
+
+            Console.WriteLine(domainUrl);
         }
+
+
 
         private static void test(object source, ElapsedEventArgs e)
         {
@@ -96,27 +122,51 @@ namespace ConsoleApp1
                 Console.WriteLine(time.ToString());
             }
         }
+    }
 
-        public class HouseXmlNodeResult
+    public class HouseXmlNodeResult
+    {
+        public string RegId { get; set; }
+        public string RoomNo { get; set; }
+        public string GuestCname { get; set; }
+        public string ArrDate { get; set; }
+        public string Payment { get; set; }
+        public string isTransfer { get; set; }
+        public string ExcutiveRate { get; set; }
+        public string Balance { get; set; }
+        public string ApprovalAmt { get; set; }
+        public string ApprovalAdj { get; set; }
+        public string LimitAmount { get; set; }
+        public string Chargeamt { get; set; }
+        public string EnableAmount { get; set; }
+        public string Remark { get; set; }
+        public string CashRemark { get; set; }
+        public string WqPersons { get; set; }
+        public string Cerid { get; set; }
+        public string PhotoUrl { get; set; }
+    }
+
+    public static class DoMain
+    {
+        private const string domainComUrl = "http://pms.gshis.com";
+        private const string domainNetUrl = "http://pms.gshis.net";
+        private const string domainCnUrl = "http://jlpms.gshis.cn";
+        public static string domainUrl
         {
-            public string RegId { get; set; }
-            public string RoomNo { get; set; }
-            public string GuestCname { get; set; }
-            public string ArrDate { get; set; }
-            public string Payment { get; set; }
-            public string isTransfer { get; set; }
-            public string ExcutiveRate { get; set; }
-            public string Balance { get; set; }
-            public string ApprovalAmt { get; set; }
-            public string ApprovalAdj { get; set; }
-            public string LimitAmount { get; set; }
-            public string Chargeamt { get; set; }
-            public string EnableAmount { get; set; }
-            public string Remark { get; set; }
-            public string CashRemark { get; set; }
-            public string WqPersons { get; set; }
-            public string Cerid { get; set; }
-            public string PhotoUrl { get; set; }
+            get
+            {
+                var domain = "http://l.gshis.cn";
+                if (domain.Contains(".gshis.net"))
+                {
+                    return domainNetUrl;
+                }
+
+                if (domain.Contains(".gshis.cn"))
+                {
+                    return domainCnUrl;
+                }
+                return domainComUrl;
+            }
         }
     }
 }
